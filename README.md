@@ -5,7 +5,7 @@ Tiny Python library to modify deep object properties without modifying the origi
 
 ## Install
 
-    pip install ObjectPathImmutable
+    pip install pip install Object-Path-Immutable
 
 ## Quick usage
 
@@ -42,7 +42,7 @@ obj = {
   }
 }
 
-from ObjectPathImmutable import Object_Path_Immutable
+from Object-Path-Immutable import Object_Path_Immutable
 ```
 
 #### set (initialObject, path, value)
