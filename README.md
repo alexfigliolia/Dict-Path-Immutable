@@ -1,7 +1,7 @@
 Object-Path-Immutable
 ===========
 
-Tiny Python library to modify deep object properties without modifying the original object (immutability).
+Tiny Python library to modify deep dictionary properties without modifying the original dictionary (immutability).
 
 ## Install
 
@@ -14,14 +14,14 @@ It will minimize the number of clones down the line. The resulting dictionary is
 so be warned that it will not be protected against property mutations
 
 ```python
-dict = {
+my_dict = {
   a: {
     b: 'c',
     c: ['d', 'f']
   }
 }
 
-new_dict = Object_Path_Immutable.set(obj, 'a.b', 'f')
+new_dict = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
 # {
 #   a: {
 #     b: 'f',
@@ -35,7 +35,7 @@ new_dict = Object_Path_Immutable.set(obj, 'a.b', 'f')
 ```python
 # Premises
 
-obj = {
+my_dict = {
   a: {
     b: 'c',
     c: ['d', 'f']
@@ -45,15 +45,15 @@ obj = {
 from Object-Path-Immutable import Object_Path_Immutable
 ```
 
-#### set (initialObject, path, value)
+#### set (initialDict, path, value)
 
-Changes an object property.
+Changes a dictionary property.
 
 - Path can be either a string or an array.
 
 ```python
-newObj1 = Object_Path_Immutable.set(obj, 'a.b', 'f')
-newObj2 = Object_Path_Immutable.set(obj, ['a', 'b'], 'f')
+new_dict1 = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
+new_dict2 = Object_Path_Immutable.set(my_dict, ['a', 'b'], 'f')
 
 # {
 #   a: {
@@ -64,7 +64,7 @@ newObj2 = Object_Path_Immutable.set(obj, ['a', 'b'], 'f')
 
 # Note that if the path is specified as a string, numbers are automatically interpreted as array indexes.
 
-newObj = Object_Path_Immutable.set(obj, 'a.c.1', 'fooo')
+new_dict = Object_Path_Immutable.set(my_dict, 'a.c.1', 'fooo')
 # {
 #   a: {
 #     b: 'f',
@@ -73,12 +73,12 @@ newObj = Object_Path_Immutable.set(obj, 'a.c.1', 'fooo')
 # }
 ```
 
-#### delete (initialObject, path)
+#### delete (initialDict, path)
 
 Deletes a property.
 
 ```python
-newObj = Object_Path_Immutable.delete(obj, 'a.c')
+new_dict = Object_Path_Immutable.delete(my_dict, 'a.c')
 # {
 #   a: {
 #     b: 'f'
@@ -89,7 +89,7 @@ newObj = Object_Path_Immutable.delete(obj, 'a.c')
 Can also delete a deep array item using splice
 
 ```python
-newObj = Object_Path_Immutable.delete(obj, 'a.c.0')
+new_dict = Object_Path_Immutable.delete(my_dict, 'a.c.0')
 # {
 #   a: {
 #     b: 'f',
