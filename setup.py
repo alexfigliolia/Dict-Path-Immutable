@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Dict_Path_Immutable",
-    version="0.1",
+    version="0.2",
     author="Alex Figliolia",
     author_email="alexfigliolia@gmail.com",
     description="Modify deep dictionary properties without modifying the original dictionary (immutability)",

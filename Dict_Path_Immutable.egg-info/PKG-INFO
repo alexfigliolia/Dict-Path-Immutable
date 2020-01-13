@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: Dict-Path-Immutable
-Version: 0.1
+Version: 0.2
 Summary: Modify deep dictionary properties without modifying the original dictionary (immutability)
 Home-page: https://github.com/alexfigliolia/Object-Path-Immutable-Python
 Author: Alex Figliolia
 Author-email: alexfigliolia@gmail.com
 License: UNKNOWN
-Description: DictPathImmutable
+Description: Dict_Path_Immutable
         ===========
         
         Tiny Python library to modify deep dictionary properties without modifying the original dictionary (immutability).
