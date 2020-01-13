@@ -2,11 +2,11 @@ import setuptools
 
 with open("README.md", "r") as fh:
   long_description = fh.read()
-  
+
 setuptools.setup(
   name='Object_Path_Immutable',  
   version='0.1',
-  scripts=['ObjectPathImmutable'] ,
+  scripts=['Object_Path_Immutable'] ,
   author="Alex Figliolia",
   author_email="alexfigliolia@gmail.com",
   description="Modify deep object properties without modifying the original object (immutability)",
