@@ -22,18 +22,18 @@ dict = {
 }
 
 new_dict = Object_Path_Immutable.set(obj, 'a.b', 'f')
-// {
-//   a: {
-//     b: 'f',
-//     c: ['d', 'f']
-//   }
-// }
+# {
+#   a: {
+#     b: 'f',
+#     c: ['d', 'f']
+#   }
+# }
 ```
 
 ## API
 
 ```python
-// Premises
+# Premises
 
 obj = {
   a: {
@@ -51,26 +51,26 @@ Changes an object property.
 
 - Path can be either a string or an array.
 
-```javascript
+```python
 newObj1 = Object_Path_Immutable.set(obj, 'a.b', 'f')
 newObj2 = Object_Path_Immutable.set(obj, ['a', 'b'], 'f')
 
-// {
-//   a: {
-//     b: 'f',
-//     c: ['d', 'f']
-//   }
-// }
+# {
+#   a: {
+#     b: 'f',
+#     c: ['d', 'f']
+#   }
+# }
 
-// Note that if the path is specified as a string, numbers are automatically interpreted as array indexes.
+# Note that if the path is specified as a string, numbers are automatically interpreted as array indexes.
 
 newObj = Object_Path_Immutable.set(obj, 'a.c.1', 'fooo')
-// {
-//   a: {
-//     b: 'f',
-//     c: ['d', 'fooo']
-//   }
-// }
+# {
+#   a: {
+#     b: 'f',
+#     c: ['d', 'fooo']
+#   }
+# }
 ```
 
 #### delete (initialObject, path)
@@ -79,21 +79,21 @@ Deletes a property.
 
 ```python
 newObj = Object_Path_Immutable.delete(obj, 'a.c')
-// {
-//   a: {
-//     b: 'f'
-//   }
-// }
+# {
+#   a: {
+#     b: 'f'
+#   }
+# }
 ```
 
 Can also delete a deep array item using splice
 
 ```python
 newObj = Object_Path_Immutable.delete(obj, 'a.c.0')
-// {
-//   a: {
-//     b: 'f',
-//     c: ['f']
-//   }
-// }
+# {
+#   a: {
+#     b: 'f',
+#     c: ['f']
+#   }
+# }
 ```
