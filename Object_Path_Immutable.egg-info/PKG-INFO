@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: Object-Path-Immutable
+Version: 0.1
+Summary: Path based updates to immutable objects
+Home-page: https://github.com/alexfigliolia/Object-Path-Immutable-Python
+Author: Alex Figliolia
+Author-email: alexfigliolia@gmail.com
+License: UNKNOWN
+Description: Modify deep object properties without modifying the original object (immutability)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
