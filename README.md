@@ -1,4 +1,4 @@
-Object_Path_Immutable
+Object-Path-Immutable
 ===========
 
 Tiny Python library to modify deep object properties without modifying the original object (immutability).

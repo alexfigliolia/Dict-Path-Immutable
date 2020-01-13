@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: Object-Path-Immutable
-Version: 0.1
+Version: 1.0
 Summary: Modify deep object properties without modifying the original object (immutability)
 Home-page: https://github.com/alexfigliolia/Object-Path-Immutable-Python
 Author: Alex Figliolia
 Author-email: alexfigliolia@gmail.com
 License: UNKNOWN
-Description: Object_Path_Immutable
+Description: Object-Path-Immutable
         ===========
         
         Tiny Python library to modify deep object properties without modifying the original object (immutability).
