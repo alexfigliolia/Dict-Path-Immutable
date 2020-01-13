@@ -1,0 +1,6 @@
+README.md
+setup.py
+Dict_Path_Immutable.egg-info/PKG-INFO
+Dict_Path_Immutable.egg-info/SOURCES.txt
+Dict_Path_Immutable.egg-info/dependency_links.txt
+Dict_Path_Immutable.egg-info/top_level.txt

@@ -8,43 +8,43 @@ import copy
 # Please refer to my tests for some examples
 
 
-class Object_Path_Immutable:
+class Dict_Path_Immutable:
     @staticmethod
     def set(src, path, value):
-        dest = src.copy() if Object_Path_Immutable.isArray(src) else copy.deepcopy(src)
-        if Object_Path_Immutable.isEmpty(path):
+        dest = src.copy() if Dict_Path_Immutable.isArray(src) else copy.deepcopy(src)
+        if Dict_Path_Immutable.isEmpty(path):
             return value
-        return Object_Path_Immutable.changeImmutable(
-            dest, src, path, Object_Path_Immutable.setCallBack, value
+        return Dict_Path_Immutable.changeImmutable(
+            dest, src, path, Dict_Path_Immutable.setCallBack, value
         )
 
     @staticmethod
     def delete(src, path):
-        dest = src.copy() if Object_Path_Immutable.isArray(src) else copy.deepcopy(src)
-        if Object_Path_Immutable.isEmpty(path):
+        dest = src.copy() if Dict_Path_Immutable.isArray(src) else copy.deepcopy(src)
+        if Dict_Path_Immutable.isEmpty(path):
             return None
-        return Object_Path_Immutable.changeImmutable(
-            dest, src, path, Object_Path_Immutable.deleteCallBack, None
+        return Dict_Path_Immutable.changeImmutable(
+            dest, src, path, Dict_Path_Immutable.deleteCallBack, None
         )
 
     @staticmethod
     def changeImmutable(dest, src, path, callback, value):
-        if Object_Path_Immutable.isNumber(path):
+        if Dict_Path_Immutable.isNumber(path):
             path = [path]
-        if Object_Path_Immutable.isEmpty(path):
+        if Dict_Path_Immutable.isEmpty(path):
             return src
-        if Object_Path_Immutable.isString(path):
-            return Object_Path_Immutable.changeImmutable(
+        if Dict_Path_Immutable.isString(path):
+            return Dict_Path_Immutable.changeImmutable(
                 dest,
                 src,
-                list(map(Object_Path_Immutable.getKey, path.split("."))),
+                list(map(Dict_Path_Immutable.getKey, path.split("."))),
                 callback,
                 value,
             )
         current_path = path[0]
         if not bool(dest):
-            dest = Object_Path_Immutable.clone(
-                src, True, Object_Path_Immutable.isNumber(current_path)
+            dest = Dict_Path_Immutable.clone(
+                src, True, Dict_Path_Immutable.isNumber(current_path)
             )
         elif (
             not isinstance(src, list)
@@ -53,8 +53,8 @@ class Object_Path_Immutable:
             and not isinstance(dest, dict)
             and src == dest
         ):
-            dest = Object_Path_Immutable.clone(
-                src, True, Object_Path_Immutable.isNumber(current_path)
+            dest = Dict_Path_Immutable.clone(
+                src, True, Dict_Path_Immutable.isNumber(current_path)
             )
         if len(path) == 1:
             return callback(dest, current_path, value)
@@ -74,7 +74,7 @@ class Object_Path_Immutable:
 
         if isinstance(dest, list) and len(dest) <= current_path:
             dest.append(None)
-        dest[current_path] = Object_Path_Immutable.changeImmutable(
+        dest[current_path] = Dict_Path_Immutable.changeImmutable(
             next_dest, src, path[1:], callback, value
         )
         return dest
@@ -86,7 +86,7 @@ class Object_Path_Immutable:
 
     @staticmethod
     def deleteCallBack(clonedObj, finalPath, value):
-        if Object_Path_Immutable.isArray(clonedObj) and len(clonedObj) > finalPath:
+        if Dict_Path_Immutable.isArray(clonedObj) and len(clonedObj) > finalPath:
             del clonedObj[finalPath]
         elif finalPath in clonedObj:
             del clonedObj[finalPath]
@@ -100,9 +100,9 @@ class Object_Path_Immutable:
                     return []
                 return {}
             return obj
-        elif Object_Path_Immutable.isArray(obj):
+        elif Dict_Path_Immutable.isArray(obj):
             return obj.copy()
-        return Object_Path_Immutable.assignToObj({}, obj)
+        return Dict_Path_Immutable.assignToObj({}, obj)
 
     @staticmethod
     def assignToObj(target, source):
@@ -113,13 +113,13 @@ class Object_Path_Immutable:
 
     @staticmethod
     def isEmpty(value):
-        if Object_Path_Immutable.isNumber(value):
+        if Dict_Path_Immutable.isNumber(value):
             return False
         if not bool(value):
             return False
-        if Object_Path_Immutable.isArray(value):
+        if Dict_Path_Immutable.isArray(value):
             return len(value) == 0
-        elif not Object_Path_Immutable.isString(value):
+        elif not Dict_Path_Immutable.isString(value):
             for key in value:
                 if hasattr(value, key):
                     return False

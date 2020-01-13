@@ -1,11 +1,11 @@
-Object-Path-Immutable
+DictPathImmutable
 ===========
 
 Tiny Python library to modify deep dictionary properties without modifying the original dictionary (immutability).
 
 ## Install
 
-    pip install Object-Path-Immutable
+    pip install Dict_Path_Immutable
 
 ## Quick usage
 
@@ -21,7 +21,7 @@ my_dict = {
   }
 }
 
-new_dict = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
+new_dict = Dict_Path_Immutable.set(my_dict, 'a.b', 'f')
 # {
 #   a: {
 #     b: 'f',
@@ -42,7 +42,7 @@ my_dict = {
   }
 }
 
-from Object-Path-Immutable import Object_Path_Immutable
+from Dict_Path_Immutable import Dict_Path_Immutable
 ```
 
 #### set (initialDict, path, value)
@@ -52,8 +52,8 @@ Changes a dictionary property.
 - Path can be either a string or an array.
 
 ```python
-new_dict1 = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
-new_dict2 = Object_Path_Immutable.set(my_dict, ['a', 'b'], 'f')
+new_dict1 = Dict_Path_Immutable.set(my_dict, 'a.b', 'f')
+new_dict2 = Dict_Path_Immutable.set(my_dict, ['a', 'b'], 'f')
 
 # {
 #   a: {
@@ -64,7 +64,7 @@ new_dict2 = Object_Path_Immutable.set(my_dict, ['a', 'b'], 'f')
 
 # Note that if the path is specified as a string, numbers are automatically interpreted as array indexes.
 
-new_dict = Object_Path_Immutable.set(my_dict, 'a.c.1', 'fooo')
+new_dict = Dict_Path_Immutable.set(my_dict, 'a.c.1', 'fooo')
 # {
 #   a: {
 #     b: 'f',
@@ -78,7 +78,7 @@ new_dict = Object_Path_Immutable.set(my_dict, 'a.c.1', 'fooo')
 Deletes a property.
 
 ```python
-new_dict = Object_Path_Immutable.delete(my_dict, 'a.c')
+new_dict = Dict_Path_Immutable.delete(my_dict, 'a.c')
 # {
 #   a: {
 #     b: 'f'
@@ -89,7 +89,7 @@ new_dict = Object_Path_Immutable.delete(my_dict, 'a.c')
 Can also delete a deep array item using splice
 
 ```python
-new_dict = Object_Path_Immutable.delete(my_dict, 'a.c.0')
+new_dict = Dict_Path_Immutable.delete(my_dict, 'a.c.0')
 # {
 #   a: {
 #     b: 'f',
