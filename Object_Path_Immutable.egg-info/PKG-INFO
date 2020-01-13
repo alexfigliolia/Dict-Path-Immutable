@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Object-Path-Immutable
-Version: 1.0
+Version: 1.1
 Summary: Modify deep object properties without modifying the original object (immutability)
 Home-page: https://github.com/alexfigliolia/Object-Path-Immutable-Python
 Author: Alex Figliolia
@@ -9,11 +9,11 @@ License: UNKNOWN
 Description: Object-Path-Immutable
         ===========
         
-        Tiny Python library to modify deep object properties without modifying the original object (immutability).
+        Tiny Python library to modify deep dictionary properties without modifying the original dictionary (immutability).
         
         ## Install
         
-            pip install pip install Object-Path-Immutable
+            pip install Object-Path-Immutable
         
         ## Quick usage
         
@@ -22,14 +22,14 @@ Description: Object-Path-Immutable
         so be warned that it will not be protected against property mutations
         
         ```python
-        dict = {
+        my_dict = {
           a: {
             b: 'c',
             c: ['d', 'f']
           }
         }
         
-        new_dict = Object_Path_Immutable.set(obj, 'a.b', 'f')
+        new_dict = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
         # {
         #   a: {
         #     b: 'f',
@@ -43,7 +43,7 @@ Description: Object-Path-Immutable
         ```python
         # Premises
         
-        obj = {
+        my_dict = {
           a: {
             b: 'c',
             c: ['d', 'f']
@@ -53,15 +53,15 @@ Description: Object-Path-Immutable
         from Object-Path-Immutable import Object_Path_Immutable
         ```
         
-        #### set (initialObject, path, value)
+        #### set (initialDict, path, value)
         
-        Changes an object property.
+        Changes a dictionary property.
         
         - Path can be either a string or an array.
         
         ```python
-        newObj1 = Object_Path_Immutable.set(obj, 'a.b', 'f')
-        newObj2 = Object_Path_Immutable.set(obj, ['a', 'b'], 'f')
+        new_dict1 = Object_Path_Immutable.set(my_dict, 'a.b', 'f')
+        new_dict2 = Object_Path_Immutable.set(my_dict, ['a', 'b'], 'f')
         
         # {
         #   a: {
@@ -72,7 +72,7 @@ Description: Object-Path-Immutable
         
         # Note that if the path is specified as a string, numbers are automatically interpreted as array indexes.
         
-        newObj = Object_Path_Immutable.set(obj, 'a.c.1', 'fooo')
+        new_dict = Object_Path_Immutable.set(my_dict, 'a.c.1', 'fooo')
         # {
         #   a: {
         #     b: 'f',
@@ -81,12 +81,12 @@ Description: Object-Path-Immutable
         # }
         ```
         
-        #### delete (initialObject, path)
+        #### delete (initialDict, path)
         
         Deletes a property.
         
         ```python
-        newObj = Object_Path_Immutable.delete(obj, 'a.c')
+        new_dict = Object_Path_Immutable.delete(my_dict, 'a.c')
         # {
         #   a: {
         #     b: 'f'
@@ -97,7 +97,7 @@ Description: Object-Path-Immutable
         Can also delete a deep array item using splice
         
         ```python
-        newObj = Object_Path_Immutable.delete(obj, 'a.c.0')
+        new_dict = Object_Path_Immutable.delete(my_dict, 'a.c.0')
         # {
         #   a: {
         #     b: 'f',
