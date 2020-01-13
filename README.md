@@ -1,4 +1,4 @@
-DictPathImmutable
+Dict_Path_Immutable
 ===========
 
 Tiny Python library to modify deep dictionary properties without modifying the original dictionary (immutability).
