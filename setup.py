@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
   name='Object-Path-Immutable',  
-  version='1.0',
+  version='1.1',
   author="Alex Figliolia",
   author_email="alexfigliolia@gmail.com",
   description="Modify deep object properties without modifying the original object (immutability)",
