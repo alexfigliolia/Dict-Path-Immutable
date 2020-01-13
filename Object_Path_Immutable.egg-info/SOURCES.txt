@@ -1,4 +1,3 @@
-ObjectPathImmutable
 README.md
 setup.py
 Object_Path_Immutable.egg-info/PKG-INFO
