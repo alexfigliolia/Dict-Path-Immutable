@@ -1,9 +1,35 @@
 import pytest
 
-from Dict_Path_Immutable import Dict_Path_Immutable
+from DictPathImmutable import Dict_Path_Immutable
 
 
 class TestDictPathImmutable:
+    def testGet(self):
+        test_encounter_data = {
+            "cardSurgInfo": {"hamAndSwiss": {"value": 1, "label": "Yes Please"}},
+            "DOB": "01/11/1991",
+            "isHungry": True,
+            "isNamedAlex": True,
+            "sampleArrayifiedField": [
+                {"turkeyAndProvaloneInfo": {"isToasted": {"value": 1, "label": "Yes"}}},
+                {"turkeyAndProvaloneInfo": {"isToasted": {"value": 0, "label": "No"}}},
+            ],
+        }
+
+        value = Dict_Path_Immutable.get(
+            test_encounter_data,
+            "sampleArrayifiedField.0.turkeyAndProvaloneInfo.isToasted.value",  # PATH TO VALUE
+        )
+
+        assert value == 1
+
+        value = Dict_Path_Immutable.get(
+            test_encounter_data,
+            "sampleArrayifiedField.0.turkeyAndProvaloneInfo.isToasted.i_do_not_exist",  # PATH TO VALUE
+        )
+
+        assert value == None
+
     def testSet(self):
         test_encounter_data = {
             "cardSurgInfo": {"hamAndSwiss": {"value": 1, "label": "Yes Please"}},

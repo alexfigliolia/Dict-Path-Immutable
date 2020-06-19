@@ -2,13 +2,37 @@ import copy
 
 # How to use me?
 
-# Simply import me and call one of my first two methods!
-# When calling set or delete, pass in an object, a path to a key (that may or may not exist), and your desired value (for set)
-# And I'll return you a new object with your desired updates
+# Simply import me and call one of my first 3 methods!
+# When calling get, set or delete, pass in an object, a path to a key (that may or may not exist), and your desired value (for set)
+# And I'll return you a new object with your desired updates (or the value at the given path for get)
 # Please refer to my tests for some examples
 
 
 class Dict_Path_Immutable:
+    @staticmethod
+    def get(src, path):
+        if Dict_Path_Immutable.isNumber(path):
+            path = [path]
+        if Dict_Path_Immutable.isEmpty(path):
+            return src
+        if Dict_Path_Immutable.isString(path):
+            path = list(map(Dict_Path_Immutable.getKey, path.split(".")))
+        value = src
+        for token in path:
+            if isinstance(value, dict):
+                value = value.get(token, None)
+            elif isinstance(value, list):
+                if Dict_Path_Immutable.isNumber(token) and token < len(value):
+                    value = value[token]
+                else:
+                    value = None
+            else:
+                value = None
+            if value is None:
+                break
+        return value
+        
+
     @staticmethod
     def set(src, path, value):
         dest = src.copy() if Dict_Path_Immutable.isArray(src) else copy.deepcopy(src)
