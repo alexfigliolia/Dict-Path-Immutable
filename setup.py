@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Dict_Path_Immutable",
-    version="0.2",
+    version="0.3",
     author="Alex Figliolia",
     author_email="alexfigliolia@gmail.com",
-    description="Modify deep dictionary properties without modifying the original dictionary (immutability)",
+    description="Modify or get deep dictionary properties without modifying the original dictionary (immutability)",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/alexfigliolia/Object-Path-Immutable-Python",

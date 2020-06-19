@@ -45,6 +45,23 @@ my_dict = {
 from Dict_Path_Immutable import Dict_Path_Immutable
 ```
 
+#### get (initialDict, path)
+
+Gets a property.
+
+```python
+nested_list = Dict_Path_Immutable.get(my_dict, 'a.c')
+# [
+#   'c',
+#   'f'
+# ]
+```
+
+```python
+nested_list_item = Dict_Path_Immutable.get(my_dict, 'a.c.1')
+# 'f'
+```
+
 #### set (initialDict, path, value)
 
 Changes a dictionary property.
