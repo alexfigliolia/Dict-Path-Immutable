@@ -51,10 +51,7 @@ Gets a property.
 
 ```python
 nested_list = Dict_Path_Immutable.get(my_dict, 'a.c')
-# [
-#   'c',
-#   'f'
-# ]
+# ['d','f']
 ```
 
 ```python
